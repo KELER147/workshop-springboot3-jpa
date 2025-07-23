@@ -1,6 +1,8 @@
 package com.github.keler147.ws_course_java.entities;
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +18,8 @@ public class User implements Serializable {
         private String password;
 
     //Associates
+        @OneToMany(mappedBy = "client")
+        private List<Order> orders = new ArrayList<>();
 
     //Constructors
         public User() {
@@ -76,5 +80,9 @@ public class User implements Serializable {
         }
         public void setPhone(String phone) {
             this.phone = phone;
+        }
+
+        public List<Order> getOrders() {
+            return orders;
         }
 }

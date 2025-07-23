@@ -1,0 +1,69 @@
+package com.github.keler147.ws_course_java.entities;
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.Objects;
+
+@Entity
+@Table(name = "tb_order")
+public class Order implements Serializable {
+    //Attributes
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
+        private Instant moment;
+
+    //Associates
+        @ManyToOne
+        @JoinColumn(name = "client_id")
+        private User client;
+
+    //Constructors
+        public Order() {
+        }
+        public Order(Long id, Instant moment, User client) {
+            this.client = client;
+            this.id = id;
+            this.moment = moment;
+        }
+
+    //Methods
+        //HashCod And Equals
+        @Override
+        public boolean equals(Object o) {
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Order order = (Order) o;
+            return Objects.equals(id, order.id) && Objects.equals(moment, order.moment) && Objects.equals(client, order.client);
+        }
+        @Override
+        public int hashCode() {
+            int result = Objects.hashCode(id);
+            result = 31 * result + Objects.hashCode(moment);
+            result = 31 * result + Objects.hashCode(client);
+            return result;
+        }
+
+        //Getters and Setters
+        public User getClient() {
+            return client;
+        }
+        public void setClient(User client) {
+            this.client = client;
+        }
+
+        public Long getId() {
+            return id;
+        }
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public Instant getMoment() {
+            return moment;
+        }
+        public void setMoment(Instant moment) {
+            this.moment = moment;
+        }
+}
