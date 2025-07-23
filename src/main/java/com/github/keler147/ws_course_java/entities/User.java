@@ -1,4 +1,5 @@
 package com.github.keler147.ws_course_java.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class User implements Serializable {
         private String password;
 
     //Associates
+        @JsonIgnore
         @OneToMany(mappedBy = "client")
         private List<Order> orders = new ArrayList<>();
 
