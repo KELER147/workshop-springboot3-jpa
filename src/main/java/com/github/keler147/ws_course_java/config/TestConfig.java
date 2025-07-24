@@ -1,7 +1,9 @@
 package com.github.keler147.ws_course_java.config;
+import com.github.keler147.ws_course_java.entities.Category;
 import com.github.keler147.ws_course_java.entities.Order;
 import com.github.keler147.ws_course_java.entities.User;
 import com.github.keler147.ws_course_java.entities.enums.OrderStatus;
+import com.github.keler147.ws_course_java.repositories.CategoryRepository;
 import com.github.keler147.ws_course_java.repositories.OrderRepository;
 import com.github.keler147.ws_course_java.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,16 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public void run(String... args) throws Exception {
+        Category cat1 = new Category(null, "Electronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
+
         User u1 = new User(null, "Maria Brown", "maria@gmail.com", "104105191", "123456");
         User u2 = new User(null, "Alex Green", "alex@gmail.com", "1870245009", "123456");
         userRepository.saveAll(Arrays.asList(u1, u2));
