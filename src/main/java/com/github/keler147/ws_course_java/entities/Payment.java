@@ -1,4 +1,5 @@
 package com.github.keler147.ws_course_java.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ public class Payment implements Serializable {
         private Instant moment;
 
     //Associates
+        @JsonIgnore
         @OneToOne
         @MapsId
         private Order order;

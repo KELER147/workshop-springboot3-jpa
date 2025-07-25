@@ -40,7 +40,15 @@ public class Order implements Serializable {
             setOrderStatus(orderStatus);
         }
 
-    //Methods
+    //Method
+        public Double getToTal() {
+            double  sum = 0.0;
+            for (OrderItem x : items) {
+                sum += x.getSubTotal();
+            }
+            return sum;
+        }
+
         //HashCod And Equals
         @Override
         public boolean equals(Object o) {

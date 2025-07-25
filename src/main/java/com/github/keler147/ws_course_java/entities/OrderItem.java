@@ -29,6 +29,10 @@ public class OrderItem {
         }
 
     //Methods
+        public Double getSubTotal() {
+            return price * quantity;
+        }
+
         //HashCod And Equals
         @Override
         public boolean equals(Object o) {
@@ -71,6 +75,4 @@ public class OrderItem {
         public void setPrice(Double price) {
             this.price = price;
         }
-
-
 }
