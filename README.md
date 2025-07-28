@@ -1,48 +1,52 @@
 # Workshop Spring Boot 3 + JPA
 
-Este projeto foi desenvolvido seguindo o curso "Java Completo" do professor Nelio Alves, disponível na plataforma Udemy. Ele tem como objetivo aplicar os conceitos de desenvolvimento backend com Spring Boot 3 e JPA, usando boas práticas de programação e arquitetura em camadas.
+This project was developed by following the "Java Completo" course by Professor Nelio Alves on the Udemy platform. Its purpose is to apply backend development concepts using Spring Boot 3 and JPA, following clean architecture and best coding practices.
 
 ---
 
-## Sobre o projeto
+## About the Project
 
-O projeto implementa um sistema simples de gerenciamento de pedidos com as seguintes funcionalidades principais:
+This is a simple order management system with the following main features:
 
-- Cadastro e manipulação de **Usuários**, **Produtos** e **Categorias**.
-- Registro de **Pedidos** com múltiplos itens, pagamento e status.
-- Uso de **DTOs**, camadas de serviço e repositório para organização do código.
-- Tratamento personalizado de exceções.
-
----
-
-## Diagramas do Projeto
-
-### Modelo de Domínio (UML)
-
-Este diagrama mostra as entidades principais do sistema e suas relações:
-
-![Modelo de Domínio UML](docs/images/domain-model.png)
-
-### Instância do Domínio
-
-Exemplo de instâncias dessas entidades com dados reais para ilustrar como os objetos interagem:
-
-![Instância do Domínio](docs/images/domain-instance.png)
-
-### Camadas Lógicas da Arquitetura
-
-Diagrama explicando a arquitetura em camadas do projeto:
-
-![Camadas Lógicas](docs/images/logical-layers.png)
+- CRUD operations for **Users**, **Products**, and **Categories**.
+- Order registration with multiple items, payment, and status handling.
+- Use of **DTOs**, service and repository layers for clean organization.
+- Custom exception handling.
 
 ---
 
-## Como rodar o projeto
+## Project Diagrams
 
-1. Clone este repositório.
-2. Importe no seu IDE favorito (ex: IntelliJ IDEA).
-3. Configure o banco de dados no `application.properties`.
-4. Rode a aplicação como um projeto Spring Boot.
-5. Use os endpoints REST para interagir com o sistema.
+### Domain Model (UML)
+
+This diagram shows the main entities and their relationships:
+
+![Domain Model UML](docs/images/domain-model.png)
+
+### Domain Instance
+
+Example of populated domain objects, illustrating how data interacts:
+
+![Domain Instance](docs/images/domain-instance.png)
+
+### Logical Architecture Layers
+
+Diagram showing the layered architecture of the system:
+
+![Logical Layers](docs/images/logical-layers.png)
 
 ---
+
+## How to Run the Project
+
+1. Clone this repository.
+2. Import it into your favorite IDE (e.g., IntelliJ IDEA).
+3. Configure the database in `application.properties`.
+4. Run the application as a Spring Boot project.
+5. Use the REST endpoints to interact with the system.
+
+---
+
+## License
+
+This project was created for educational purposes as part of the Udemy course by Nelio Alves.
