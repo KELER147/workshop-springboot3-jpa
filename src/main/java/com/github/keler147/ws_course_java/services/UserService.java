@@ -1,9 +1,13 @@
 package com.github.keler147.ws_course_java.services;
 import com.github.keler147.ws_course_java.entities.User;
 import com.github.keler147.ws_course_java.repositories.UserRepository;
+import com.github.keler147.ws_course_java.services.exceptions.DatabaseException;
 import com.github.keler147.ws_course_java.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,8 +31,16 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        if (!repository.existsById(id)) {
+            throw new ResourceNotFoundException(id);
+        }
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException(e.getMessage());
+        }
     }
+
 
     public User update(Long id, User obj) {
         User entity = repository.getReferenceById(id);
